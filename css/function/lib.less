@@ -1,0 +1,30 @@
+.multi(@line) {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}
+.ell() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.img(){
+  width: 100%;
+  background:#fff url(../../img/loading.png) no-repeat 50% 50%;
+  background-size: 100% auto;
+}
+
+/** 在使用像素比策略的情况下使用该函数来调整字体大小 **/
+.font-dpr(@font-size){
+    font-size: @font-size;
+
+    [data-dpr="2"] & {
+        font-size: @font-size * 2;
+    }
+
+    [data-dpr="3"] & {
+        font-size: @font-size * 3;
+    }
+}

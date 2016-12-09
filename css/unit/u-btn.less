@@ -1,0 +1,98 @@
+/*
+ * 按钮元件
+ */
+.btn-normal {
+  .font-dpr(14px);
+  line-height: 30/32rem;
+  display: inline-block;
+  padding: 0 16px;
+  text-align: center;
+  border-radius: 0.1rem;
+  background-color: currentColor;
+  .ell;
+  .lh-box-sizing(border-box);
+}
+.btn-normal::first-line {
+  color: #fff;
+}
+/* 变色按钮特殊处理 */
+.btn-normal._white {
+  box-shadow: inset 0.05rem 0 #e3e4e6, inset 0 0.05rem #e3e4e6, inset 0 -0.05rem #e3e4e6, inset -0.05rem 0 #e3e4e6;
+}
+.btn-normal._white::first-line {
+  color: #33373d;
+}
+/* 交互与变色-加深效果 */
+.btn-normal:active {
+  background-image: -webkit-linear-gradient(to top, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1));
+}
+
+/* 小标签 */
+.tag-solid {
+  .font-dpr(12px);
+  line-height: 1.5;
+  display: inline-block;
+  padding: 0 .25em;
+  border-radius: 0.1rem;
+  background-color: currentColor;
+}
+.tag-solid::first-line {
+  color: #fff;
+}
+
+/* 带质感的标签 */
+.tag-honor {
+  .font-dpr(12px);
+  line-height: 16/32rem;
+  padding: 0 .5em;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #fff;
+  border-radius: 40/32rem;
+  background-color: currentColor;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .2), rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, 0) 50%);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, .2), rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, 0) 50%);
+}
+.tag-honor::first-line {
+  color: #fff;
+}
+
+/* 线框标签 */
+.tag-line {
+  .font-dpr(12px);
+  line-height: 20/32rem;
+  display: inline-block;
+  padding: 0 1em;
+  border: 1/32rem solid;
+  border-radius: 2em;
+}
+
+/* 基础颜色，放在最后 */
+._dark {
+  color: #33373d;
+}
+._gray {
+  color: #969ba3;
+}
+._blue {
+  color: #4284ed;
+}
+._green {
+  color: #7ed321;
+}
+._orange {
+  color: #f0643a;
+}
+._yellow {
+  color: #f0c53a;
+}
+._purple {
+  color: #a091ff;
+}
+._red {
+  color: #ed424b;
+}
+._white {
+  color: #fff;
+}

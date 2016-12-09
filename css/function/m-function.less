@@ -1,0 +1,206 @@
+//定义常用函数  不输出文件内容
+
+//链接lesshat库
+// @import (reference) './lesshat-prefixed';
+
+//链接全局变量
+// @import (reference) './global';
+
+
+
+//通过媒体查询为不同的设备和大小配置不同的样式
+
+// 根字号 24px 对应单位转换值
+// 开发时候使用px，发布前批量替换  px  => *@px
+
+@rem-base:24;
+//@rem-base:20;
+//@rem-base:40;
+@px:1rem/@rem-base;
+
+
+//用来debug,快速加背景色和边框
+.bg1(@color:#ffc0cb){background-color:@color;}
+.bg2(@color:#ccc){background-color: @color;}
+.bg3(@color:#1ba1e2){background-color: @color;}
+.bg4(@color:#4eb3b9){background-color: @color;}
+.bd(@color:#ccc){border: 1px solid @color;}
+
+
+//  清除浮动
+.clearfix() {
+    &:before,&:after { content: " ";display: table}
+    &:after {clear: both;}
+}
+
+//  box-size
+.box-sizing (@value: border-box){
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+//  实例化
+//  Sizing
+.size(@width;@height) {
+  width: @width*@px;
+  height: @height*@px;
+}
+.size(@size) {
+  width: @size*@px;
+  height: @size*@px;
+}
+//  文本截取超出省略号
+//  Truncating text
+.ell() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//  文本截取超出省略号
+//  Truncating text
+.break-all() {
+  word-wrap: break-word;
+  word-break: break-all;
+}
+//  行高
+//  Line-height
+.lh(@height){
+    height:@height*@px;
+    line-height:@height*@px;
+}
+//  浮动Li居中对齐
+//  Float Li Center
+.floatcenter(){
+    position: relative;
+    left: 50%;
+    float: left;
+    li{
+        position: relative;
+        right: 50%;
+        float: left;
+    }
+}
+//  输入框占位符提示颜色
+//  Placeholder text
+.placeholder(@color: @input-color-placeholder) {
+  &::-moz-placeholder           { color: @color; }
+  &::-ms-input-placeholder      { color: @color; } // ie 10+
+  &::-webkit-input-placeholder  { color: @color; }
+}
+//  圆角
+//  Rounded corners
+.bdrst(@radius) {
+  border-top-right-radius: @radius;
+   border-top-left-radius: @radius;
+}
+.bdrsr(@radius) {
+  border-bottom-right-radius: @radius;
+     border-top-right-radius: @radius;
+}
+.bdrsb(@radius) {
+  border-bottom-right-radius: @radius;
+   border-bottom-left-radius: @radius;
+}
+.bdrsl(@radius) {
+  border-bottom-left-radius: @radius;
+     border-top-left-radius: @radius;
+}
+//  字体缩进
+//  text-indent
+.ti(@indent:2em){
+    text-indent: @indent;
+}
+.transition(@property:all,@time:.2s){
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+/*
+ * FIS函数
+ * from FIS mixin
+ */
+// 边距设置
+.edge (@distance: 0) {
+    margin: @distance;
+    padding: @distance;
+}
+// 修改外观
+.appearance (@value: none) {
+    -webkit-appearance: @value;
+    /*-moz-appearance: none;*/
+    -ms-appearance: @value;
+    -o-appearance: @value;
+    appearance: @value;
+}
+
+.font-smoothing (@value: antialiased){
+    -webkit-font-smoothing: @value;
+    -moz-font-smoothing: @value;
+    -ms-font-smoothing: @value;
+    -o-font-smoothing: @value;
+    font-smoothing: @value;
+}
+
+.text-rendering (@value: optimizeLegibility){
+    -webkit-text-rendering: @value;
+    -moz-text-rendering: @value;
+    -ms-text-rendering: @value;
+    -o-text-rendering: @value;
+    text-rendering: @value;
+}
+
+.linear-gradient (@from; @to; @ieFrom; @ieTo; @unsupported) {
+    background: @unsupported;
+    background: -webkit-gradient(linear, left top, left bottom, from(@from),to(@to));
+    background: -webkit-linear-gradient(top, @from, @to);
+    background: -moz-linear-gradient(top, @from, @to);
+    background: -o-linear-gradient(top, @from, @to);
+    background: -ms-linear-gradient(top, @from, @to);
+    background: linear-gradient(top, @from, @to);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr=@ieFrom, EndColorStr=@ieTo);
+}
+
+.transition (@during: 0.2s; @property: all) {
+    -webkit-transition: @property @during;
+    -moz-transition: @property @during;
+    -ms-transition: @property @during;
+    -o-transition: @property @during;
+    transition: @property @during;
+}
+.transform-scale (@value){
+    -webkit-transform: scale(@value);
+    -moz-transform: scale(@value);
+    -ms-transform: scale(@value);
+    -o-transform: scale(@value);
+    transform: scale(@value);
+}
+
+.flex-num(@flex:1){
+//  旧版flex
+    -webkit-box-flex: @flex;
+    -moz-box-flex: @flex;
+//  新版flex
+    -webkit-flex: @flex;
+    -moz-flex: @flex;
+    -ms-flex: @flex;
+    flex: @flex;
+}
+
+.multi(@line) {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line;
+  -webkit-box-orient: vertical;
+}
+
+.img(){
+  width: 100%;
+  background:#fff url(../../img/loading.png) no-repeat 50% 50%;
+  background-size: 100% auto;
+}
